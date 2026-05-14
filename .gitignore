@@ -1,0 +1,11 @@
+adult-income-pipeline/
+serving_model/
+__pycache__/
+.ipynb_checkpoints/
+venv/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.env
+.DS_Store
