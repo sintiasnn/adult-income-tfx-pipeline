@@ -92,7 +92,7 @@ adult-income-tfx-pipeline/
 ## Getting Started
 
 ### Prerequisites
-- Python 3.9
+- Linux / WSL2 (recommended)
 - Docker (for TF Serving)
 
 ### 1. Clone Repository
@@ -102,10 +102,25 @@ cd adult-income-tfx-pipeline
 ```
 
 ### 2. Setup Environment
+
+TFX requires Python 3.9 and is best managed via Conda. Run the setup script — it auto-installs Miniconda if needed:
+
 ```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+bash setup.sh
+```
+
+Or manually:
+
+```bash
+# Install Miniconda (if not installed)
+wget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.7.1-0-Linux-x86_64.sh -O miniconda.sh
+bash miniconda.sh -b -p $HOME/miniconda
+source $HOME/miniconda/bin/activate
+
+# Create environment
+conda create -n adult-income-tfx python==3.9.15 -y
+conda activate adult-income-tfx
+pip install jupyter scikit-learn tensorflow tfx==1.11.0 flask joblib keras-tuner
 ```
 
 ### 3. Run Pipeline
